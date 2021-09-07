@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 function simpleDecorator(constructor: Function) {
   console.log('simpleDecorator called');
 }
@@ -45,3 +49,12 @@ class ClassWithMultipleDecorators {}
 
 // console.log(`instance_1: ${JSON.stringify(instance_1)}`);
 // console.log(`instance_2: ${JSON.stringify(instance_2)}`);
+
+function decoratorFactory(name: string) {
+  return (constructor: Function) => {
+    console.log(`Decorator function called with: ${name}`);
+  };
+}
+
+@decoratorFactory('testName')
+class ClassWithDecoratorFactory {}
