@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Changing the document</title>
+    </head>
+    <body>
+        <p>one</p>
+        <p>two</p>
+        <p>three</p>
+
+        <script>
+            let paragraphs = document.getElementsByTagName('p');
+            document.body.insertBefore(paragraphs[2], paragraphs[0]);
+        </script>
+    </body>
+</html>

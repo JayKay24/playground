@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Event Handlers</title>
+    </head>
+    <body>
+        <p>This page turns violet when you hold the "V" key.</p>
+
+        <script>
+            const pressed = {
+                "background": "violet",
+                "color": "white"
+            };
+            const normal = {
+                "background": "",
+                "color": "black",
+            };
+            
+            window.addEventListener("keydown", (event) => {
+                if(event.key === "v") {
+                    console.log("pressed");
+                    for (let [property, value] of Object.entries(pressed)) {
+                        document.body.style[property] = value;
+                    }
+                }
+            });
+            window.addEventListener("keyup", (event) => {
+                if(event.key === "v") {
+                    for (let [property, value] of Object.entries(normal)) {
+                        document.body.style[property] = value;
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

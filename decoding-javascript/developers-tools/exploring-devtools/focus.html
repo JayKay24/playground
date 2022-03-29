@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Focus</title>
+    </head>
+    <body>
+        <input class="defaultFocus" type="text" />
+        <input type="text" tabindex=1 />
+        <a href=".">(help)</a>
+        <button onclick="console.log('ok')" tabindex=2 disabled>OK</button>
+        <p></p>
+
+        <script>
+            function focusUp() {
+                document.querySelector("input.defaultFocus").focus();
+                const para = document.querySelector("p");
+                const paraContent = document.createTextNode(document.activeElement.tagName);
+                para.appendChild(paraContent);
+    
+                document.body.appendChild(para);
+            }
+
+            function blurDown() {
+                document.querySelector("input.defaultFocus").blur();
+                const para = document.querySelector("p");
+                const paraContent = document.createTextNode(document.activeElement?.tagName);
+                para.textContent = "";
+                para.appendChild(paraContent);
+
+                document.body.appendChild(para);
+            }
+
+            focusUp();
+
+            setTimeout(blurDown, 3000);
+        </script>
+    </body>
+</html>

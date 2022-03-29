@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>DOM Layout</title>
+        <style>
+            .boxed-in {
+                border: 3px solid red;
+            }
+        </style>
+    </head>
+    <body>
+        <p class="boxed-in">
+            I'm boxed in
+        </p>
+        <p class="dimensions"></p>
+
+        <script>
+            let para = document.getElementsByTagName('p')[0];
+            let height = para.clientHeight;
+            let width = para.clientWidth;
+
+            let dims = `Height: ${height}, Width: ${width}`;
+
+            let textNode = document.createTextNode(dims);
+            let dimensionsNode = document.getElementsByClassName("dimensions")[0];
+
+            dimensionsNode.appendChild(textNode);
+            para.style.color = "blue";
+        </script>
+    </body>
+</html>
