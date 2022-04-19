@@ -4,7 +4,8 @@ class MinHeap extends Heap {
   bubbleDown() {
 	let idx = 0;
 
-	while (this.leftChild(idx) && this.leftChild(idx) < this.items[idx]) {
+	while (this.leftChild(idx) && this.leftChild(idx) < this.items[idx] ||
+	  this.rightChild(idx) < this.items[idx]) {
 	  let smallerIdx = this.leftChildIdx(idx);
 
 	  if (this.rightChild(idx) && this.rightChild(idx) < this.items[smallerIdx]) {
