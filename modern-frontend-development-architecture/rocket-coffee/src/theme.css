@@ -1,0 +1,22 @@
+:root {
+  --background: #fff;
+  --border-default: 1px solid;
+  --font-sm: 12px;
+  --font-md: 16px;
+  --font-large: 24px;
+  --font-xlarge: 36px;
+  --light: #bfbfbf;
+  --primary: #012326;
+  --radius-default: 5px;
+  --secondary: #083a40;
+  --shadow-default: 10px 9px 33px -17px rgba(0, 0, 0, 0.75);
+  --spacing-none: 0px;
+  --spacing-sm: 4px;
+  --spacing-regular: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 24px;
+  --spacing-xlarge: 48px;
+  --subtle: #736565;
+  --text: #222;
+  --warning: #a6432d;
+}

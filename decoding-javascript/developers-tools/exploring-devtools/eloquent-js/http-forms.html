@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>HTTP Forms</title>
+        <style>
+            .content {
+                background: orange;
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content"></div>
+
+        <script>
+            const url = 'https://jsonplaceholder.typicode.com/todos/1';
+            const contentDiv = document.querySelector(".content");
+            
+            fetch(url).then((response) => {
+                const statusCode = `Status Code: ${response.status}`;
+                const para1TextNode = document.createTextNode(statusCode);
+                const para1 = document.createElement("p");
+                
+                para1.appendChild(para1TextNode);
+                
+                const contentType = "Content-Type";
+                const para2Content = `${contentType}: ${response.headers.get(contentType)}`;
+                const para2TextNode = document.createTextNode(para2Content);
+                const para2 = document.createElement("p");
+                para2.appendChild(para2TextNode);
+
+                contentDiv.appendChild(para1);
+                contentDiv.appendChild(para2);
+
+                return response.json()
+            }).then((content) => {
+                const pre = document.createElement("pre");
+                const preContent = document.createTextNode(JSON.stringify(content, null, 2));
+                pre.appendChild(preContent);
+                contentDiv.appendChild(pre);
+            });
+        </script>
+    </body>
+</html>

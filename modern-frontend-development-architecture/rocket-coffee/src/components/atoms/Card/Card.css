@@ -1,0 +1,13 @@
+.card {
+  background-color: var(--background);
+  border: var(--border-default);
+  border-color: var(--light);
+  border-radius: var(--radius-default);
+  box-shadow: var(--shadow-default);
+  color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  margin: var(--spacing-large);
+  max-width: 240px;
+  padding: var(--spacing-medium);
+}

@@ -10,7 +10,9 @@ function binarySearch(arr, x) {
       } else {
         low = mid + 1;
       }
+
+	console.log(arr.slice(low - 1));
   }
-  
+
   return j;
 }

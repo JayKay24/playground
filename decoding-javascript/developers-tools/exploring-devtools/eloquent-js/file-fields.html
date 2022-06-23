@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>File Fields</title>
+    </head>
+    <body>
+        <input type="file" multiple />
+        <p></p>
+
+        <script>
+            const para = document.querySelector("p");
+            let input = document.querySelector("input");
+            
+            input.addEventListener("change", async () => {
+                for (let file of Array.from(input.files)) {
+                    const fileContent = await readFileText(file);
+                    const paraContent = document.createTextNode(fileContent);
+                    para.appendChild(paraContent);
+                }
+            });
+
+            async function readFileText(file) {
+                return new Promise((resolve, reject) => {
+                    let reader = new FileReader();
+                    reader.addEventListener("load", () => resolve(reader.result));
+                    reader.addEventListener("error", () => reject(reader.error));
+
+                    reader.readAsText(file);
+                });
+            }
+        </script>
+    </body>
+</html>

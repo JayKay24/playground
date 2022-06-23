@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Forms</title>
+    </head>
+    <body>
+        <label for="purple">
+            <input type="checkbox" id="purple" />
+            Make this page purple
+        </label>
+
+        <br />
+
+        Color:
+
+        <label for="orange">
+            <input type="radio" name="color" value="orange" id="orange" /> Orange
+        </label>
+
+        <label for="green">
+            <input type="radio" name="color" value="lightgreen" id="green" /> Green
+        </label>
+
+        <label for="blue">
+            <input type="radio" name="color" value="lightblue" id="blue" /> Blue
+        </label>
+
+        <select multiple>
+            <option value="1">0001</option>
+            <option value="2">0010</option>
+            <option value="3">0100</option>
+            <option value="4">1000</option>
+        </select> = <span id="output">0</span>
+
+        <script>
+            let checkbox = document.getElementById("purple");
+            checkbox.addEventListener("change", (event) => {
+                document.body.style.background = checkbox.checked ? "mediumpurple" : "";
+            });
+
+            let buttons = Array.from(document.querySelectorAll("[name='color']"));
+            for (let button of buttons){
+                button.addEventListener("change", (event) => {
+                    document.body.style.background = button.value;
+                });
+            }
+
+            let select = document.querySelector("select");
+            let output = document.querySelector("#output");
+            select.addEventListener("change", (event) => {
+                let number = 0;
+                for (let option of Array.from(select.options)) {
+                    if(option.selected) {
+                        number += Number(option.value);
+                    }
+                }
+
+                output.textContent = number;
+            });
+        </script>
+    </body>
+</html>
